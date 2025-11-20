@@ -1,9 +1,17 @@
 pipeline {
     agent any
+    tools{
+        maven 'Maven'
+    }
     options {
         skipStagesAfterUnstable()
     }
     stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/DevOpsKaksha/Simple_Maven_SonarQube_CICD.git', branch: 'main'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
