@@ -32,7 +32,7 @@ jobs:
             name: test-results
             path: target/surefire-reports/*.xml
         - name: SonarQube Scan
-          run: mvn sonar:sonar
+          run: mvn sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
         
         - name: install dependencies
           run: sh './jenkins/scripts/deliver.sh' 

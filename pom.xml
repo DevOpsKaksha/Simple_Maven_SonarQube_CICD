@@ -19,7 +19,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<sonar.projectKey>Simple_maven</sonar.projectKey>
     <sonar.host.url>https://nonpathologically-stickiest-lien.ngrok-free.dev </sonar.host.url>
-    <sonar.token>sqp_98254e847ddecf3c15dabeaa13ba5b6ff6e1f67f</sonar.token>
   </properties>
   <build>
     <pluginManagement>
