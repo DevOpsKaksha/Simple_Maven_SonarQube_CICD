@@ -1,0 +1,33 @@
+name: first-maven-action
+on: 
+    push:
+      branches:
+        - main
+    pull_request:
+jobs:
+    maven-build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+    
+        - name: Set up JDK 11
+          uses: actions/setup-java@v4
+          with:
+            java-version: '11'
+    
+        - name: Build with Maven
+          run: mvn -B clean package
+        
+        - name: Run tests
+          run: mvn test
+
+        - name: Archive test results
+          if: always()
+          uses: actions/upload-artifact@v4
+          with:
+            name: test-results
+        
+        - name: install dependencies
+          run: sh './jenkins/scripts/deliver.sh' 
+        
