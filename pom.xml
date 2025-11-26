@@ -31,6 +31,14 @@
             <release>17</release>
           </configuration>
         </plugin>
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>exec-maven-plugin</artifactId>
+			<version>3.6.2</version>
+			<configuration>
+				<mainClass>com.mycompany.app.App</mainClass>
+			</configuration>
+			</plugin>
       </plugins>
     </pluginManagement>
     <plugins>
