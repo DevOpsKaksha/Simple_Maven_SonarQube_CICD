@@ -31,7 +31,9 @@ jobs:
           with:
             name: test-results
             path: target/surefire-reports/*.xml
+
         - name: SonarQube Scan
+          if: github.actor != 'dependabot[bot]'
           run: mvn sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
         
         - name: install dependencies
