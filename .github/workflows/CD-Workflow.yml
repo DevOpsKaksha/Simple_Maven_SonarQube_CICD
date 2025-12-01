@@ -13,6 +13,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download JAR
+        uses: actions/download-artifact@v4
+        with:
+            name: app-jar
+            path: target
 
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/firstmavenapp:${{ github.sha }} .
