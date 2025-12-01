@@ -36,6 +36,6 @@ jobs:
           if: github.actor != 'dependabot[bot]'
           run: mvn sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
         
-        - name: install dependencies
-          run: sh './jenkins/scripts/deliver.sh' 
+#        - name: install dependencies
+#          run: sh './jenkins/scripts/deliver.sh' 
         
