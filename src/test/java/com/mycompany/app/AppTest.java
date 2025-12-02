@@ -20,6 +20,7 @@ public class AppTest
     public void testAppMessage()
     {
         App app = new App();
-        assertEquals("Hello World!", app.getMessage());
+        // Use the MESSAGE constant from App instead of hardcoding
+        assertEquals(App.MESSAGE, app.getMessage());
     }
 }

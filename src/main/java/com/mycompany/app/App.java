@@ -5,7 +5,7 @@ package com.mycompany.app;
  */
 public class App {
 
-    private static final String MESSAGE = "Hello World!";
+    public static final String MESSAGE = "Hello From Ravi!";
 
     public static void main(String[] args) {
         System.out.println(MESSAGE);
