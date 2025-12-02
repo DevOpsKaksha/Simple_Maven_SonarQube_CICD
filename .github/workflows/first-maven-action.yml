@@ -55,6 +55,6 @@ jobs:
 
         - name: Deploy to KIND
           run: |
-            kubectl set image deployment/firstmavenapp firstmavenapp=${{ secrets.DOCKERHUB_USERNAME }}/firstmavenapp:${{ github.sha }}***/firstmavenapp:5e5f05cfb1c93598d4ca19aa8ce5ad131e118e2f
+            kubectl set image deployment/firstmavenapp firstmavenapp=${{ secrets.DOCKERHUB_USERNAME }}/firstmavenapp:${{ github.sha }}
             kubectl rollout restart deployment/firstmavenapp
         
