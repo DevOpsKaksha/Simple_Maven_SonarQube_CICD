@@ -6,7 +6,7 @@ on:
     pull_request:
 jobs:
     maven-build:
-        runs-on: self-hosted
+        runs-on: self-hosted # run self-hosted runner on local machine first
         steps:
         - name: Checkout code
           uses: actions/checkout@v4
@@ -53,10 +53,8 @@ jobs:
     #     uses: helm/kind-action@v1.7.0
     #     - name: Install KIND
 
-    #   - name: Deploy to KIND
-    #     run: |
-    #       kubectl create deployment myapp --image=${{ secrets.DOCKERHUB_USERNAME }}/myapp:${{ github.sha }} || \
-    #       kubectl set image deployment/myapp myapp=${{ secrets.DOCKERHUB_USERNAME }}/myapp:${{ github.sha }}
-    #       kubectl expose deployment myapp --type=NodePort --port=8080 || true
-    #       kubectl rollout status deployment/myapp
+        - name: Deploy to KIND
+          run: |
+            kubectl set image deployment/firstmavenapp firstmavenapp=${{ secrets.DOCKERHUB_USERNAME }}/firstmavenapp:${{ github.sha }}***/firstmavenapp:5e5f05cfb1c93598d4ca19aa8ce5ad131e118e2f
+            kubectl rollout restart deployment/firstmavenapp
         
