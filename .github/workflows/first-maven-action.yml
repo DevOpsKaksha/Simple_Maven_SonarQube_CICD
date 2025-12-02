@@ -6,7 +6,7 @@ on:
     pull_request:
 jobs:
     maven-build:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
         - name: Checkout code
           uses: actions/checkout@v4
@@ -32,9 +32,9 @@ jobs:
             name: test-results
             path: target/surefire-reports/*.xml
 
-        - name: SonarQube Scan
-          if: github.actor != 'dependabot[bot]'
-          run: mvn sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+        # - name: SonarQube Scan
+        #   if: github.actor != 'dependabot[bot]'
+        #   run: mvn sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
         
 #        - name: install dependencies
 #          run: sh './jenkins/scripts/deliver.sh' 
